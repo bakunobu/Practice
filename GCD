@@ -1,4 +1,4 @@
-# A simple GCD function that is based on Euclidean algorithm (no build-in functions and if-statements).
+# A simple GCD function that is based on the Euclidean algorithm (no build-in functions and if-statements).
 def eucl_gcd(a, b):
     my_list = [a, b]
     my_list.sort()
