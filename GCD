@@ -1,0 +1,8 @@
+# Simple GCD function that is based on Euclidean algorithm (no build-in functions and if-statements).
+def eucl_gcd(a, b):
+    my_list = [a, b]
+    my_list.sort()
+    a, b = my_list
+    while a != b != 0:
+        a, b = b, a % b
+    return a
