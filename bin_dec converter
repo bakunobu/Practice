@@ -1,0 +1,91 @@
+# decimal - binary numerical systems converter without any math functions
+
+
+def int_check(var):
+    while type(var) != int:
+        if var.isdigit():
+            var = int(var)
+        else:
+            print('Please use integers only!')
+            var = input("Type an int: ")
+    return var
+
+
+def is_binary(string):
+    is_binary = True
+    for dig in string:
+        if '0' != dig != '1':
+            print("Please use only '0' and '1'")
+            is_binary = False
+            break
+            
+    return is_binary
+
+
+def decimal_binary():
+    """takes int and returns converted binary number(str)"""
+    number = input('Type in an integer: ')
+    divident = int_check(number)
+    total = []
+    result = ''
+
+    while divident > 0:
+        dig = divident % 2
+        divident = divident // 2
+        total.append(dig)
+
+    for _ in total[::-1]:
+        result += str(_)
+
+    return result
+
+
+def binary_decimal():
+    """takes str and returns converted decimal number(int)"""
+    total = 0
+    i = 0
+    string = str(input('Type a binary number: '))
+    while not is_binary(string):
+        string = str(input('Type a binary number: '))
+
+    for _ in string[::-1]:
+        total += int(_) * (2**i)
+        i += 1
+
+    return total
+
+
+def main():
+    print("""
+Welcome to simple decimal_binary converter
+(no math functions are used)
+
+        """)
+    choice = None
+    while choice != 3:
+        print \
+        ("""
+\tChoose an operation: 
+\t1) Convert dec to bin
+\t2) Convert bin to dec
+\t3) Exit
+
+        """)
+        choice = input("Choose an option: ")
+        choice = int_check(choice)
+
+        if choice == 3:
+            print('Bye!')
+
+        elif choice == 1:
+            print(decimal_binary())
+        
+        elif choice == 2:
+            print(binary_decimal())
+            
+        else:
+            choice = int(input('Choose 1-3: '))
+
+main()
+input('Press Enter to cancel')
+ 
