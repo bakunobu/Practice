@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Sep 20 13:46:50 2018
+
+@author: Сергей
+"""
+
+#cleaning a file from empty lines
+
+def e_line_remover(input_file, output_file = 'output.txt'):
+    """
+    Removes empty lines from *.txt file. Both input and output are txt files
+    """
+    raw_data = open(input_file, 'r')
+    cleaned = open(output_file, 'w+')
+    rd_lines = raw_data.readlines()
+    clean_data = []
+    for _ in rd_lines:
+        if len(_) > 1:
+            clean_data.append(_)
+    
+    for item in clean_data:
+        cleaned.write(item)
+    
+    raw_data.close()
+    cleaned.close()
