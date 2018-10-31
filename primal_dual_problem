@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct 31 07:39:23 2018
+
+@author: bakunobu
+"""
+
+import scipy
+from scipy.optimize import linprog # загрузка библиотеки ЛП
+
+
+c = [-0.25, -1.2] # список коэффициентов функции цели
+
+b_ub = [20000, 180000, 32000] # список объёмов ресурсов
+x0_bounds = (90000, None)
+x1_bounds = (30000, None)
+A_ub = [
+        [0.05, 0.5],
+        [1.1, 1],
+        [0.225, 0.25]]
+#        [
+#        [0.05, 1.1, 0.225], # матрица удельных значений ресурсов
+#        [0.5, 1, 0.25]
+#        ] 
+
+d=linprog(c, A_ub, b_ub, bounds=(x0_bounds, x1_bounds)) # поиск решения
+
+for key,val in d.items():
+    print(key,val) # вывод решения
+    if key=='x':
+        q=[sum(i) for i in A_ub*val]#использованные ресурсы
+        print('A_ub*x',q) 
+        q1= scipy.array(b_ub)-scipy.array(q) #остатки ресурсов
+        print('b_ub-A_ub*x', q1)
+
+
+ 
+c= [20000, 180000, 32000]  
+b_ub = [-0.25, -1.2]
+
+A_ub_T =-scipy.transpose(A_ub)
+d=linprog(c, A_ub_T, b_ub)
+for key,val in d.items():
+    print(key,val)
+        
