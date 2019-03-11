@@ -1,0 +1,4 @@
+mas = {'one', 'two', 'three', 'four'}
+dic = {string: len(string) for string in mas}
+for key in dic.keys():
+    print(key,'-', dic[key])
