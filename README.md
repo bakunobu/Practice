@@ -1,2 +1,3 @@
 # Practice
-Python code just for practice
+Some Python code just for practice.
+Siple tasks and exercises.
