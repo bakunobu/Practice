@@ -1,0 +1,5 @@
+def set_list_intersection(my_list, my_set):
+  """
+  Returns a tuple (a set's element, how many times does it occur in a list). An input is a list and a set.
+  """
+  return tuple((i, my_list.count(i)) for i in my_set)
