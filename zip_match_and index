@@ -1,0 +1,4 @@
+a = [1, 2, 3]
+b = ['one', 'two', 'three']
+for num, item_one, item_two in zip(range(len(a)), a, b):
+    print(str(num+1)+': ' + str(item_one)+' and '+str(item_two))
