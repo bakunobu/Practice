@@ -1,0 +1,20 @@
+def odd_rev_order(my_list):
+    """
+    Set a reversed order for all the odd-indexed elements of a list. Both an input and an output are lists.
+    """
+    odd_list = my_list[1::2] # creates a list of odd-indexed elements
+    odd_list = odd_list[::-1]  # sets a reversed order
+    even_list = my_list[::2] # creates a list of even-indexed elements
+    new_list = [] # new list to combine elements
+    i, j = 0, 0 # temp variables
+    for k in range(len(my_list)):
+        if k == 0:
+            new_list.append(even_list[i])
+            i += 1
+        elif k % 2 == 0:
+            new_list.append(even_list[i])
+            i += 1
+        else:
+            new_list.append(odd_list[j])
+            j += 1
+    return new_lists
