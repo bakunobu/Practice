@@ -1,0 +1,5 @@
+def mult_of_all(my_list, index):
+    k = 1
+    for x in my_list[:index]:
+        k *= x
+    return k
