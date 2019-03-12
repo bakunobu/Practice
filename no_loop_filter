@@ -1,0 +1,8 @@
+my_list = ['agfkd.,f', 'Qksdf;sb&..', 'asdoo*', 'bgf...d', 're54()kj[]].']
+# no loops are allowed
+new_list = list(map(lambda x: x.count('.'), my_list)) #need to count how many dots are in an every word
+print(new_list)
+#use filter() to avoid using if - else in lambda 
+# and one extra expression to filter it from None values or to index True/False to convert to words  
+double_dots = list(map(lambda x: x, filter(lambda y: y.count('.') > 2, my_list)))
+print(double_dots)
